@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encuentra las mejores laptops para todas tus necesidades.">
+    <title>Laptops - TechCompare</title>
+    <!-- Enlace a la hoja de estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Título como enlace al inicio -->
+            <h1>
+                <a href="{% url 'index' %}" class="text-white text-decoration-none">TechCompare</a>
+            </h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'index' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'perifericos' %}">Periféricos</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'laptops' %}">Laptops</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'componentes' %}">Componentes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- Sección de búsqueda -->
+        <section id="search" class="py-5 bg-light">
+            <div class="container text-center">
+                <h2>Encuentra la laptop perfecta para ti</h2>
+                <form action="/search" method="GET" class="d-flex justify-content-center mt-3">
+                    <input type="text" name="query" class="form-control w-50" placeholder="Buscar laptops, marcas o modelos..." required>
+                    <button type="submit" class="btn btn-primary ms-2">Buscar</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Sección de laptops destacadas -->
+        <section id="laptops" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Laptops destacadas</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="laptop1.jpg" class="card-img-top" alt="Laptop HP">
+                            <div class="card-body">
+                                <h3 class="card-title">Laptop HP Envy</h3>
+                                <p class="card-text">Desde $799.99</p>
+                                <a href="/product/4" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="laptop2.jpg" class="card-img-top" alt="Laptop Dell">
+                            <div class="card-body">
+                                <h3 class="card-title">Laptop Dell Inspiron</h3>
+                                <p class="card-text">Desde $899.99</p>
+                                <a href="/product/5" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="laptop3.jpg" class="card-img-top" alt="Laptop MacBook">
+                            <div class="card-body">
+                                <h3 class="card-title">MacBook Air M2</h3>
+                                <p class="card-text">Desde $999.99</p>
+                                <a href="/product/6" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 TechCompare. Todos los derechos reservados.</p>
+            <a href="{% url 'index' %}" class="text-white">Volver al Inicio</a>
+        </div>
+    </footer>
+
+    <!-- Script de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
