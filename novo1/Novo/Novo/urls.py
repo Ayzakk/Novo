@@ -14,16 +14,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# urls.py
 from django.contrib import admin
 from django.urls import path
-from NovoApp.views import *
-
+from NovoApp.views import *  # Importa todas las vistas desde la aplicación NovoApp
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='index'),  # Ruta para la página de inicio
+    path('', index, name='index'),
     path('perifericos/', perifericos, name='perifericos'),
     path('laptops/', laptops, name='laptops'),
     path('componentes/', componentes, name='componentes'),
     path('contacto/', contacto, name='contacto'),
+    path('buscar/', buscar_productos, name='buscar_productos'),
+    path('login/', login_view, name='login'),
+    path('register/', register, name='register'),
+    path('carrito/', cart_view, name='carrito'), 
+    path('checkout/', checkout, name='checkout'), # Ruta para el carrito
 ]

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados de la búsqueda</title>
+</head>
+<body>
+    <h1>Resultados de la búsqueda para: "{{ query }}"</h1>
+    <ul>
+        {% for producto in productos %}
+            <li>
+                <strong>{{ producto.nombre }}</strong><br>
+                Descripción: {{ producto.descripcion }}<br>
+                Precio: ${{ producto.precio }}<br>
+                Categoría: {{ producto.categoria }}
+            </li>
+        {% empty %}
+            <li>No se encontraron productos para tu búsqueda.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

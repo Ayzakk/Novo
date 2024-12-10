@@ -1,80 +1,73 @@
-{% load static %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Comparador de precios de tecnología y productos electrónicos. Encuentra las mejores ofertas en laptops, componentes y más.">
-    <title>Novo - Encuentra las mejores ofertas</title>
-    <!-- Enlace a la hoja de estilos de Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tu archivo CSS personalizado -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header class="bg-dark text-white py-3">
-        <div class="container">
-            <h1>TechCompare</h1>
-            <nav>
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link text-white" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#categories">Categorías</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#deals">Ofertas</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'contacto' %}">Contacto</a></li>
-                </ul>
-            </nav>
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<!-- Sección de búsqueda -->
+<section id="search" class="py-5 bg-light">
+    <div class="container text-center">
+        <h2>Encuentra el mejor producto al mejor precio</h2>
+        <form action="{% url 'buscar_productos' %}" method="GET" class="d-flex justify-content-center mt-3">
+            <input type="text" name="query" class="form-control w-50" placeholder="Buscar productos, marcas o modelos..." required>
+            <button type="submit" class="btn btn-primary ms-2">Buscar</button>
+        </form>
+    </div>
+</section>
+
+<!-- Sección de categorías -->
+<section id="categories" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Categorías populares</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <a href="{% url 'laptops' %}" class="btn btn-outline-primary w-100 mb-2">Laptops</a>
+            </div>
+            <div class="col-md-4">
+                <a href="/componentes" class="btn btn-outline-primary w-100 mb-2">Componentes</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'perifericos' %}" class="btn btn-outline-primary w-100 mb-2">Periféricos</a>
+            </div>
         </div>
-    </header>
+    </div>
+</section>
 
-    <main>
-        <!-- Sección de búsqueda -->
-        <section id="search" class="py-5 bg-light">
-            <div class="container text-center">
-                <h2>Encuentra el mejor producto al mejor precio</h2>
-                <form action="/search" method="GET" class="d-flex justify-content-center mt-3">
-                    <input type="text" name="query" class="form-control w-50" placeholder="Buscar productos, marcas o modelos..." required>
-                    <button type="submit" class="btn btn-primary ms-2">Buscar</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Sección de categorías -->
-        <section id="categories" class="py-5">
-            <div class="container">
-                <h2 class="text-center mb-4">Categorías populares</h2>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <a href="{% url 'laptops' %}" class="btn btn-outline-primary w-100 mb-2">Laptops</a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="/componentes" class="btn btn-outline-primary w-100 mb-2">Componentes</a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="{% url 'perifericos' %}" class="btn btn-outline-primary w-100 mb-2">Periféricos</a> <!-- Enlace añadido -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección de productos destacados -->
-        <section id="featured-products" class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center mb-4">Productos destacados</h2>
-                <div class="row">
-                    <!-- No hay productos destacados, esta sección ahora está vacía -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-dark text-white py-3">
-        <div class="container text-center">
-            <p>&copy; 2024 TechCompare. Todos los derechos reservados.</p>
+<!-- Sección de productos destacados -->
+<section id="featured-products" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Productos destacados</h2>
+        <div class="row">
+            <!-- Aquí puedes agregar productos destacados en el futuro -->
+            <p class="text-center">No hay productos destacados disponibles en este momento.</p>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <!-- Script de Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<!-- Sección de inicio de sesión -->
+<section id="login" class="py-5">
+    <div class="container text-center">
+        <h2>Iniciar sesión</h2>
+        <a href="{% url 'login' %}" class="btn btn-outline-primary">Iniciar sesión</a>
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </form>
+        <p class="mt-3">¿No tienes cuenta? <a href="{% url 'register' %}">Regístrate</a></p>
+    </div>
+</section>
+
+<!-- Carrito de compra -->
+<section id="cart" class="py-5 bg-light">
+    <div class="container text-center">
+        <h2>Carrito de compra</h2>
+        <p><a href="{% url 'carrito' %}" class="btn btn-outline-primary">Ver carrito</a></p>
+        <p class="text-muted">Artículos en el carrito: <span id="cart-count">0</span></p>
+    </div>
+</section>
+
+{% endblock %}

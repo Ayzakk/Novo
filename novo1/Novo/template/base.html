@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comparador de precios de tecnología y productos electrónicos. Encuentra las mejores ofertas en laptops, componentes y más.">
+    <title>{% block title %}TechCompare{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between">
+            <h1>TechCompare</h1>
+            <nav>
+                <ul class="nav">
+                    <!--
+                    <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="{% url 'laptops' %}" class="nav-link">Laptops</a></li>
+                    <li class="nav-item"><a href="{% url 'componentes' %}" class="nav-link">Componentes</a></li>
+                    <li class="nav-item"><a href="{% url 'perifericos' %}" class="nav-link">Periféricos</a></li>
+                    -->
+                    <li class="nav-item">
+                        <a href="{% url 'carrito' %}" class="nav-link">
+                            Carrito
+                            {% if request.user.is_authenticated %}
+                                <span class="badge bg-light text-dark">
+                                    {% if cart_item_count %}
+                                        {{ cart_item_count }}
+                                    {% else %}
+                                        0
+                                    {% endif %}
+                                </span>
+                            {% endif %}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Contenido dinámico -->
+        {% endblock %}
+    </main>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 TechCompare. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

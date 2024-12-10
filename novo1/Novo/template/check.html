@@ -1,0 +1,15 @@
+<!-- checkout.html -->
+{% extends "base.html" %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<section id="checkout" class="py-5">
+    <div class="container text-center">
+        <h2>Checkout</h2>
+        <p class="lead">Resumen de tu compra.</p>
+        <p>Este es un ejemplo de la página de checkout.</p>
+        <a href="{% url 'index' %}" class="btn btn-primary">Regresar a la tienda</a>
+    </div>
+</section>
+{% endblock %}

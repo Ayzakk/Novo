@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Carrito de Compra{% endblock %}
+
+{% block content %}
+<!-- Sección del carrito de compra -->
+<section id="carrito" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Carrito de Compra</h2>
+        
+        <!-- Si el carrito está vacío -->
+        <div id="empty-cart" class="text-center">
+            <p class="lead text-muted">¡Tu carrito está vacío! Añade productos para empezar a comprar.</p>
+            <a href="{% url 'laptops' %}" class="btn btn-primary btn-lg">Ir a la tienda</a>
+        </div>
+
+        <!-- Si el carrito tiene productos -->
+        <div id="filled-cart" class="d-none">
+            <div class="row">
+                <!-- Ejemplo de producto en el carrito -->
+                <div class="col-md-8">
+                    <div class="card mb-4">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://via.placeholder.com/150" class="img-fluid rounded-start" alt="producto">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Producto de ejemplo</h5>
+                                    <p class="card-text">Descripción del producto.</p>
+                                    <p class="card-text"><strong>Precio: $100</strong></p>
+                                    <button class="btn btn-danger">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total y acción de compra -->
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <h4 class="text-center">Total</h4>
+                        <p class="lead text-center">Total de productos: <strong>$100</strong></p>
+                        <a href="{% url 'checkout' %}" class="btn btn-success w-100">Proceder a la compra</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
