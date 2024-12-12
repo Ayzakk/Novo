@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ponte en contacto con nosotros para obtener más información o resolver tus dudas.">
+    <title>Contacto - Novo</title>
+    <!-- Enlace a la hoja de estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Título con enlace al inicio -->
+            <h1>
+                <a href="{% url 'index' %}" class="text-white text-decoration-none">Novo</a>
+            </h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'index' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'perifericos' %}">Periféricos</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'laptops' %}">Laptops</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'componentes' %}">Componentes</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'contacto' %}">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-4">Contáctanos</h2>
+                <p class="text-center mb-4">¿Tienes alguna pregunta o necesitas ayuda? Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form action="/send-message" method="POST" class="bg-white p-4 rounded shadow">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nombre completo</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo electrónico</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="tuemail@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Asunto</label>
+                                <input type="text" id="subject" name="subject" class="form-control" placeholder="Motivo del mensaje" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Mensaje</label>
+                                <textarea id="message" name="message" class="form-control" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 Novo. Todos los derechos reservados.</p>
+            <a href="{% url 'index' %}" class="text-white">Volver al Inicio</a>
+        </div>
+    </footer>
+
+    <!-- Script de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

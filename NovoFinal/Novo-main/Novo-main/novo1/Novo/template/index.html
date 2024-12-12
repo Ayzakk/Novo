@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<!-- Sección de búsqueda -->
+<section id="search" class="py-5 bg-light">
+    <div class="container text-center">
+        <h2>Encuentra el mejor producto al mejor precio</h2>
+        <form action="{% url 'buscar_productos' %}" method="GET" class="d-flex justify-content-center mt-3">
+            <input type="text" name="query" class="form-control w-50" placeholder="Buscar productos, marcas o modelos..." required>
+            <button type="submit" class="btn btn-primary ms-2">Buscar</button>
+        </form>
+    </div>
+</section>
+
+<!-- Sección de categorías -->
+<section id="categories" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Categorías populares</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <a href="{% url 'laptops' %}" class="btn btn-outline-primary w-100 mb-2">Laptops</a>
+            </div>
+            <div class="col-md-4">
+                <a href="/componentes" class="btn btn-outline-primary w-100 mb-2">Componentes</a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'perifericos' %}" class="btn btn-outline-primary w-100 mb-2">Periféricos</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de productos destacados -->
+<section id="featured-products" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Productos destacados</h2>
+        <div class="row justify-content-center">
+            <!-- Imagen de la laptop -->
+            <div class="col-md-3 text-center mb-3">
+                <img src="{% static 'images/laptops.jpg' %}" alt="Laptop" class="img-fluid" style="max-height: 150px;">
+                <h5 class="mt-2">Laptop</h5>
+            </div>
+            <!-- Imagen de la tarjeta gráfica -->
+            <div class="col-md-3 text-center mb-3">
+                <img src="{% static 'images/grafica.jpg' %}" alt="Tarjeta Gráfica" class="img-fluid" style="max-height: 150px;">
+                <h5 class="mt-2">Tarjeta Gráfica</h5>
+            </div>
+            <!-- Imagen de los audífonos -->
+            <div class="col-md-3 text-center mb-3">
+                <img src="{% static 'images/periferico.jpg' %}" alt="Perifericos" class="img-fluid" style="max-height: 150px;">
+                <h5 class="mt-2">Audífonos</h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

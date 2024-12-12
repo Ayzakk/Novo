@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encuentra los mejores periféricos para tu experiencia gaming.">
+    <title>Periféricos - Novo</title>
+    <!-- Enlace a la hoja de estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1>
+                <a href="{% url 'index' %}" class="text-white text-decoration-none">Novo</a>
+            </h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'index' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'perifericos' %}">Periféricos</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'componentes' %}">Componentes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sección de periféricos destacados -->
+        <section id="perifericos" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Periféricos destacados</h2>
+                <div class="row">
+                    
+                    <!-- Teclado HyperX 60% -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="{% static 'images/hyperx.jpeg' %}" alt="Teclado HyperX 60%" class="img-fluid" style="max-height: 150px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Teclado HyperX 60%</h3>
+                                <p class="card-text">Desde $100,000 CLP</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalHyperX60">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal HyperX 60% -->
+                    <div class="modal fade" id="modalHyperX60" tabindex="-1" aria-labelledby="modalHyperX60Label" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalHyperX60Label">Teclado HyperX 60%</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="{% static 'images/hyperx.jpeg' %}" alt="Teclado HyperX 60%" class="img-fluid" style="max-height: 150px;">
+                                    <p>Teclado mecánico con diseño minimalista, 60% de tamaño, con switches rojos para una experiencia silenciosa.</p>
+                                    <p><strong>Precio:</strong> Desde $100,000 CLP</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mouse Redragon K1NG M916 PRO -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="{% static 'images/redragon.jpg' %}" alt="Mouse Redragon K1NG M916 PRO" class="img-fluid" style="max-height: 150px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Mouse Redragon K1NG M916 PRO</h3>
+                                <p class="card-text">Desde $70,000 CLP</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRedragon">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Redragon K1NG M916 PRO -->
+                    <div class="modal fade" id="modalRedragon" tabindex="-1" aria-labelledby="modalRedragonLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalRedragonLabel">Mouse Redragon K1NG M916 PRO</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="{% static 'images/redragon.jpg' %}" alt="Mouse Redragon K1NG M916 PRO" class="img-fluid" style="max-height: 150px;">
+                                    <p>Mouse con velocidad de respuesta de hasta 4000Hz, diseño ergonómico, y un excelente sistema de retroiluminación RGB.</p>
+                                    <p><strong>Precio:</strong> Desde $70,000 CLP</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Audífonos Logitech G733 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="{% static 'images/periferico.jpg' %}" alt="Audífonos Logitech G733" class="img-fluid" style="max-height: 150px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Audífonos Logitech G733</h3>
+                                <p class="card-text">Desde $120,000 CLP</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLogitech">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Audífonos Logitech G733 -->
+                    <div class="modal fade" id="modalLogitech" tabindex="-1" aria-labelledby="modalLogitechLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLogitechLabel">Audífonos Logitech G733</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="{% static 'images/periferico.jpg' %}" alt="Audífonos Logitech G733" class="img-fluid" style="max-height: 150px;">
+                                    <p>Audífonos inalámbricos con sonido envolvente, micrófono claro, diseño cómodo y batería de hasta 29 horas.</p>
+                                    <p><strong>Precio:</strong> Desde $120,000 CLP</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 Novo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
