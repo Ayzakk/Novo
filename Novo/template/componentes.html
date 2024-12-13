@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encuentra los mejores componentes para tu PC.">
+    <title>Componentes - Novo</title>
+    <!-- Enlace a la hoja de estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1>
+                <a href="{% url 'index' %}" class="text-white text-decoration-none">Novo</a>
+            </h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'index' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'perifericos' %}">Periféricos</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'laptops' %}">Laptops</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'componentes' %}">Componentes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sección de componentes destacados -->
+        <section id="componentes" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Componentes destacados</h2>
+                <div class="row">
+                    <!-- Asus ROG Strix RTX 4090 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="{% static 'images/rogg.jpg' %}" alt="Asus ROG Strix RTX 4090" class="img-fluid" style="max-height: 150px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Asus ROG Strix RTX 4090</h3>
+                                <p class="card-text">Desde $1,600,000 CLP</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRTX4090">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Asus RTX 4090 -->
+                    <div class="modal fade" id="modalRTX4090" tabindex="-1" aria-labelledby="modalRTX4090Label" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalRTX4090Label">Asus ROG Strix RTX 4090</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="{% static 'images/rogg.jpg' %}" alt="Asus ROG Strix RTX 4090" class="img-fluid" style="max-height: 150px;">
+                                    <p>Potente tarjeta gráfica con arquitectura Ada Lovelace, 24GB de memoria GDDR6X y soporte para trazado de rayos en tiempo real.</p>
+                                    <p><strong>Precio:</strong> Desde $1,600,000 CLP</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Intel Core i9-13900K -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="{% static 'images/i9.jpg' %}" alt="Intel Core i9-13900K" class="img-fluid" style="max-height: 150px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Intel Core i9-13900K</h3>
+                                <p class="card-text">Desde $600,000 CLP</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalI9">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Intel Core i9 -->
+                    <div class="modal fade" id="modalI9" tabindex="-1" aria-labelledby="modalI9Label" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalI9Label">Intel Core i9-13900K</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="{% static 'images/i9.jpg' %}" alt="Intel Core i9-13900K" class="img-fluid" style="max-height: 150px;">
+                                    <p>Procesador de alto rendimiento con 24 núcleos, 32 hilos, reloj base de 3.0GHz y soporte para overclocking avanzado.</p>
+                                    <p><strong>Precio:</strong> Desde $600,000 CLP</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kingston SSD 960GB -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="{% static 'images/ssd.jpg' %}" alt="Kingston SSD 960GB" class="img-fluid" style="max-height: 150px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Kingston SSD 960GB</h3>
+                                <p class="card-text">Desde $80,000 CLP</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSSD">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Kingston SSD -->
+                    <div class="modal fade" id="modalSSD" tabindex="-1" aria-labelledby="modalSSDLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalSSDLabel">Kingston SSD 960GB</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="{% static 'images/ssd.jpg' %}" alt="Kingston SSD 960GB" class="img-fluid" style="max-height: 150px;">
+                                    <p>Disco de estado sólido con velocidad de lectura de hasta 500MB/s y una capacidad perfecta para almacenamiento avanzado.</p>
+                                    <p><strong>Precio:</strong> Desde $80,000 CLP</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 Novo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encuentra las mejores laptops para todas tus necesidades.">
+    <title>Laptops - Novo</title>
+    <!-- Enlace a la hoja de estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Título como enlace al inicio -->
+            <h1>
+                <a href="{% url 'index' %}" class="text-white text-decoration-none">Novo</a>
+            </h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'index' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'perifericos' %}">Periféricos</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'laptops' %}">Laptops</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'componentes' %}">Componentes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- Sección de búsqueda -->
+        <section id="search" class="py-5 bg-light">
+            <div class="container text-center">
+                <h2>Encuentra la laptop perfecta para ti</h2>
+                <form action="/search" method="GET" class="d-flex justify-content-center mt-3">
+                    <input type="text" name="query" class="form-control w-50" placeholder="Buscar laptops, marcas o modelos..." required>
+                    <button type="submit" class="btn btn-primary ms-2">Buscar</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Sección de laptops destacadas -->
+        <section id="laptops" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Laptops destacadas</h2>
+                <div class="row">
+                    <!-- Asus ROG Strix Scar 16 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="{% static 'images/laptop1.jpg' %}" alt="Laptop" class="img-fluid" style="max-height: 150px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Asus ROG Strix Scar 16</h3>
+                                <p class="card-text">Desde $2,200,000 CLP</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAsus">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Asus -->
+                    <div class="modal fade" id="modalAsus" tabindex="-1" aria-labelledby="modalAsusLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalAsusLabel">Asus ROG Strix Scar 16</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="{% static 'images/laptop1.jpg' %}" alt="Laptop" class="img-fluid" style="max-height: 150px;">
+                                    <p>Con su diseño potente, la Asus ROG Strix Scar 16 ofrece una experiencia de juego premium con un rendimiento excepcional.</p>
+                                    <p><strong>Precio:</strong> Desde $2,200,000 CLP</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Razer Blade 16 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="{% static 'images/laptop2.avif' %}" alt="Laptop" class="img-fluid" style="max-height: 150px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Razer Blade 16</h3>
+                                <p class="card-text">Desde $2,500,000 CLP</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRazer">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Razer -->
+                    <div class="modal fade" id="modalRazer" tabindex="-1" aria-labelledby="modalRazerLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalRazerLabel">Razer Blade 16</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="{% static 'images/laptop2.avif' %}" alt="Laptop" class="img-fluid" style="max-height: 150px;">
+                                    <p>El Razer Blade 16 ofrece una combinación de diseño elegante, potencia gráfica avanzada y pantalla con una tasa de refresco optimizada.</p>
+                                    <p><strong>Precio:</strong> Desde $2,500,000 CLP</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Acer Nitro V15 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="{% static 'images/laptop3.jpg' %}" alt="Laptop" class="img-fluid" style="max-height: 150px;">
+                            <div class="card-body">
+                                <h3 class="card-title">Acer Nitro V15</h3>
+                                <p class="card-text">Desde $679,990 CLP</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAcer">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Acer -->
+                    <div class="modal fade" id="modalAcer" tabindex="-1" aria-labelledby="modalAcerLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalAcerLabel">Acer Nitro V15</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="{% static 'images/laptop3.jpg' %}" alt="Laptop" class="img-fluid" style="max-height: 150px;">
+                                    <p>Con un rendimiento sólido y una tasa de refresco alta, la Acer Nitro V15 es ideal para gamers que buscan un equilibrio entre precio y calidad.</p>
+                                    <p><strong>Precio:</strong> Desde $679,990 CLP</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 Novo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
